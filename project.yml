@@ -1,0 +1,36 @@
+name: CurrenciesApp
+targets:
+  CurrenciesApp:
+    type: application
+    platform: iOS
+    deploymentTarget: "13.0"
+    settings:
+      INFOPLIST_FILE: CurrenciesApp/App/Info.plist
+      PRODUCT_BUNDLE_IDENTIFIER: com.example.CurrenciesApp
+      TARGETED_DEVICE_FAMILY: 1
+    sources: [CurrenciesApp]
+    dependencies:
+      - package: Alamofire
+      - package: RxSwift
+      - package: RxDataSources
+      - package: RxGesture
+      - package: SnapKit
+    postCompileScripts:
+      - script: export PATH="$PATH:/opt/homebrew/bin"; swiftlint
+        name: Swiftlint
+packages:
+  Alamofire:
+    url: https://github.com/Alamofire/Alamofire.git
+    from: 5.4.0
+  RxSwift:
+    url: https://github.com/ReactiveX/RxSwift.git
+    from: 6.2.0
+  RxDataSources:
+    url: https://github.com/RxSwiftCommunity/RxDataSources.git
+    from: 5.0.0
+  RxGesture:
+    url: https://github.com/RxSwiftCommunity/RxGesture.git
+    from: 4.0.0
+  SnapKit:
+    url: https://github.com/SnapKit/SnapKit.git
+    from: 5.0.0
