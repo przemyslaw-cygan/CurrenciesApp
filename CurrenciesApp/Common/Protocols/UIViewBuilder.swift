@@ -10,11 +10,3 @@ protocol UIViewBuilder {
     func setupViewAutolayout()
     func setupViewProperties()
 }
-
-extension UIViewBuilder {
-    func setupView() {
-        setupViewHierarchy()
-        setupViewAutolayout()
-        setupViewProperties()
-    }
-}
