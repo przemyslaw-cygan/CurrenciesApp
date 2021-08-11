@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        let tabNavigationViewModel = DefaultTabNavigationViewModel(with: [])
+        let viewControllers = ["List A", "List B", "List C"].map { mockListViewController(with: $0) }
+        let tabNavigationViewModel = DefaultTabNavigationViewModel(with: viewControllers)
         let tabNavigationViewController = TabNavigationViewController(with: tabNavigationViewModel)
 
         self.window = UIWindow(frame: UIScreen.main.bounds)
@@ -40,4 +41,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(systemName: "arrow.left")
     }
 
+}
+
+private extension AppDelegate {
+    func mockListViewController(with title: String) -> ListViewController {
+        let viewController = ListViewController(with: MockListViewModel())
+        viewController.title = title
+        return viewController
+    }
 }

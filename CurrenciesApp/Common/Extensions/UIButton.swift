@@ -17,3 +17,5 @@ extension UIButton {
         setBackgroundImage(colorImage, for: forState)
     }
 }
+
+extension UIButton: TabNavigationItem {}
