@@ -16,12 +16,12 @@ class ListViewController: BaseViewController<ListViewModel> {
     private let tableView = UITableView()
 
     override func setupViewHierarchy() {
+        super.setupViewHierarchy()
         view.addSubview(tableView)
     }
 
     override func setupViewAutolayout() {
         super.setupViewAutolayout()
-
         tableView.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(10)
         }

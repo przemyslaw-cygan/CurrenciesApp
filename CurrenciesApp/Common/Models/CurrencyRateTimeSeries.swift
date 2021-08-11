@@ -16,5 +16,9 @@ struct CurrencyRateTimeSeries {
 }
 
 extension CurrencyRateTimeSeries: Identifiable {
-    var id: String { "\(currency.symbol)_\(baseCurrency.symbol)_\(startDate.timeIntervalSince1970)_\(startDate.timeIntervalSince1970)" }
+    var id: String {
+        let startId = "\(startDate.timeIntervalSince1970)"
+        let endId = "\(endDate.timeIntervalSince1970)"
+        return "\(currency.symbol)_\(baseCurrency.symbol)_\(startId)_\(endId)"
+    }
 }

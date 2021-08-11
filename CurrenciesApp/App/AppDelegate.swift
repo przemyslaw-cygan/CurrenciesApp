@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        let viewControllers = ["List A", "List B", "List C"].map { mockListViewController(with: $0) }
+        let viewControllers = ["List A", "List B", "List C"].map { Self.mockListViewController(with: $0) }
         let tabNavigationViewModel = DefaultTabNavigationViewModel(with: viewControllers)
         let tabNavigationViewController = TabNavigationViewController(with: tabNavigationViewModel)
 
@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 private extension AppDelegate {
-    func mockListViewController(with title: String) -> ListViewController {
+    static func mockListViewController(with title: String) -> ListViewController {
         let viewController = ListViewController(with: MockListViewModel())
         viewController.title = title
         return viewController
